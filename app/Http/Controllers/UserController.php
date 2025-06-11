@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -15,8 +16,21 @@ class UserController extends Controller
 
    function addData(Request $request){
     
+   $rules = [
+        "id"   => 'required|numeric',
+        "name" => 'required|min:3',
+        "age"  => 'required|numeric',
+        "city" => 'required'
+    ];
    
-   $check= Users::insert([
+    $validation=Validator::make($request->all(),$rules);
+    if ($validation->fails()) {
+        return response()->json([
+            'status' => 'error',
+            'errors' => $validation->errors()
+        ], 422);
+    }else{
+      $check= Users::insert([
         "id"=>$request->id,
         "name"=>$request->name,
     
@@ -29,6 +43,10 @@ class UserController extends Controller
      }else{
        return "data not  added succesfully";
      }
+   
+    }
+    
+  
    
    
    }
