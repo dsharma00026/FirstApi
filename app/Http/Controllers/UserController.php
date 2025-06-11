@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class UserController extends Controller
 {
@@ -46,9 +47,15 @@ class UserController extends Controller
     
     
 
- 
+   }
 
-    
+   function delete(Request $request){
+    $check=Users::destroy($request->id);
+    if($check){
+        return ['result'=>'data deleted'];
+    }else{
+        return ['result'=>'data not deleted'];
+    }
 
    }
 }
