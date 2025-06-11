@@ -42,3 +42,10 @@ Route::delete('delete',[UserController::class,'delete']);
 //resource controller 
 Route::resource('resource',UserDataController::class);
 
+
+//forlogin
+
+Route::post('signup',[UserController::class,'UserSignUp']);
+Route::post('login',[UserController::class,'UserLogin']);
+
+
