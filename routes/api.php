@@ -28,3 +28,7 @@ Route::get("/test",function(){
 
 //api to fetch data from db
 Route::get('Data',[UserController::class,'getData']);
+
+//for postapis
+Route::post('addData',[UserController::class,'addData']);
+
