@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//here wecreate route for api
+Route::get("/test",function(){
+
+    return ["name"=>"deepak sharma","age"=>"55"];
+
+});
