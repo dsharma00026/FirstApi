@@ -32,3 +32,6 @@ Route::get('Data',[UserController::class,'getData']);
 //for postapis
 Route::post('addData',[UserController::class,'addData']);
 
+//for put 
+Route::put('update',[UserController::class,'update']);
+

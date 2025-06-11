@@ -31,4 +31,24 @@ class UserController extends Controller
    
    
    }
+
+   function update(Request $request){
+    $user=new Users();
+
+
+    $users=Users::find($request->id);
+    $users->id=$request->id;
+    $users->name=$request->name;
+    $users->age=$request->age;
+    $users->city=$request->city;
+    $users->save();
+
+    
+    
+
+ 
+
+    
+
+   }
 }
