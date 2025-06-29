@@ -76,4 +76,15 @@ class UserController extends Controller
     }
 
    }
+
+   function UserLogin(Request $request){
+      return "login function";
+   }
+
+   function UserSignUp(Request $request){
+
+    $input=$request->all();
+    $input['password']=bcrypt($input['password']);
+    return $input;
+   }
 }
