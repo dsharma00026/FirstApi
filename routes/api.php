@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,16 @@ Route::get("/test",function(){
     return ["name"=>"deepak sharma","age"=>"55"];
 
 });
+
+//api to fetch data from db
+Route::get('Data',[UserController::class,'getData']);
+
+//for postapis
+Route::post('addData',[UserController::class,'addData']);
+
+//for put 
+Route::put('update',[UserController::class,'update']);
+
+//for delete 
+Route::delete('delete',[UserController::class,'delete']);
+
